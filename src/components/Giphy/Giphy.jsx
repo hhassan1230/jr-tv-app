@@ -26,7 +26,8 @@ export default class Giphy extends React.Component {
             currentTitle: `Now Loading....`,
             currentSource: `static`,
             localStorgeArray: ``,
-            hourFormat: `12hour`
+            hourFormat: `12hour`,
+            channel: 0,
         };
     }
 
@@ -120,6 +121,12 @@ export default class Giphy extends React.Component {
         //this.props.visible = true;
     }
 
+    handleChannelChange(){
+       this.setState({
+            channel: this.count + 1,
+       });
+    }
+
 
     componentDidMount() {
         log('componentDidMount');
@@ -193,6 +200,9 @@ export default class Giphy extends React.Component {
                     <div className='tv-screen'>
                         <div className='mediaWrapper'>
                             {gifImgWindow}
+                        </div>
+                        <div>
+                            <button onClick={() => this.handleChannelChange()}>Up</button>
                         </div>
                     </div>
                 </div>
